@@ -1,0 +1,42 @@
+﻿@model TrelloClone.ViewModel.BoardView;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        @if (Model.Columns.Count > 0)
+        {
+            <div>
+                <a asp-controller="Board"
+                   asp-action="AddCard"
+                   asp-route-id="@Model.Id"
+                   class="wave-effect waves-light btn">
+                    Add A Card
+                </a>
+            </div>
+        }
+
+        @foreach (var column in Model.Columns)
+        {
+            <div class="col m2">
+                <h3>@column.Title</h3>
+
+                @foreach (var card in column.Cards)
+                {
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            @card.Content
+                        </div>
+                    </div>
+                }
+
+            </div>
+        }
+
+    </div>
+</div>
+

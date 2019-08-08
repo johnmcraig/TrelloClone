@@ -1,0 +1,7 @@
+﻿body {
+}
+
+/* invalid color */
+input[type=text].input-validation-error {
+    border-bottom: 1px solid #f00;
+}

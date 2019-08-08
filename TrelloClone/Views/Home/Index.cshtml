@@ -1,0 +1,38 @@
+﻿@model TrelloClone.ViewModel.BoardList;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Boards</h2>
+    <a asp-action="Create" asp-controller="Home" class="waves-effect waves-light btn">
+        Add New Board
+    </a>
+
+    </div>
+
+    <div class="row">
+        @foreach (var board in Model.Boards)
+        {
+            <div class="card s12">
+                <div style="float: left; margin-right: 2em; width: 22em;">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">
+                                @board.Title
+                            </span>
+                        </div>
+                        <div class="card-action">
+                            <a asp-action="Index" asp-controller="Board"
+                               asp-route-id="@board.Id"
+                               class="collction-item">View</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

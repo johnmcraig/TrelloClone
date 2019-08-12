@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TrelloClone.Services;
 using TrelloClone.ViewModel;
 
@@ -37,13 +33,10 @@ namespace TrelloClone.Controllers
         [HttpPost]
         public IActionResult AddCard(AddCard viewModel)
         {
-            if (ModelState.IsValid)
-            {
-                _boardService.AddCard(viewModel);
-                return RedirectToAction(nameof(Index), new { id = viewModel.Id });
-            }
+            if (!ModelState.IsValid) return View(viewModel);
+            _boardService.AddCard(viewModel);
+            return RedirectToAction(nameof(Index), new { id = viewModel.Id });
 
-            return View(viewModel);
         }
     }
 }

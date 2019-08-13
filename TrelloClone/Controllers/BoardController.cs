@@ -15,12 +15,12 @@ namespace TrelloClone.Controllers
 
         public IActionResult Index(int id)
         {
-            BoardView model = _boardService.GetBoard(id);
+            var model = _boardService.GetBoard(id);
 
             return View(model);
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult Details(int id)
         {
             return View(_boardService.GetBoard(id));
         }
@@ -36,7 +36,6 @@ namespace TrelloClone.Controllers
             if (!ModelState.IsValid) return View(viewModel);
             _boardService.AddCard(viewModel);
             return RedirectToAction(nameof(Index), new { id = viewModel.Id });
-
         }
     }
 }

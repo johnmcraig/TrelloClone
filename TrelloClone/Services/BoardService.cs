@@ -42,28 +42,31 @@ namespace TrelloClone.Services
                 .ThenInclude(c => c.Cards)
                 .SingleOrDefault(x => x.Id == id);
 
-            model.Id = board.Id;
-
-            foreach (var column in board.Columns)
+            if (board != null)
             {
-                var modelColumn = new BoardView.Column
-                {
-                    Title = column.Title
-                };
+                model.Id = board.Id;
 
-                foreach (var card in column.Cards)
+                foreach (var column in board.Columns)
                 {
-                    var modelCard = new BoardView.Card
+                    var modelColumn = new BoardView.Column
                     {
-                        Content = card.Contents
+                        Title = column.Title
                     };
 
-                    modelColumn.Cards.Add(modelCard);
-                }
+                    foreach (var card in column.Cards)
+                    {
+                        var modelCard = new BoardView.Card
+                        {
+                            Content = card.Contents
+                        };
 
-                model.Columns.Add(modelColumn);
+                        modelColumn.Cards.Add(modelCard);
+                    }
+
+                    model.Columns.Add(modelColumn);
+                }
             }
-      
+
             return model;
         }
 
@@ -73,22 +76,25 @@ namespace TrelloClone.Services
                 .Include(b => b.Columns)
                 .SingleOrDefault(x => x.Id == viewModel.Id);
 
-            var firstColumn = board.Columns.FirstOrDefault();
-
-            if (firstColumn == null)
+            if (board != null)
             {
-                firstColumn = new Models.Column
+                var firstColumn = board.Columns.FirstOrDefault();
+
+                if (firstColumn == null)
                 {
-                    Title = "Todo"
-                };
+                    firstColumn = new Models.Column
+                    {
+                        Title = "Todo"
+                    };
 
-                board.Columns.Add(firstColumn);
+                    board.Columns.Add(firstColumn);
+                }
+
+                firstColumn.Cards.Add(new Models.Card
+                {
+                    Contents = viewModel.Contents
+                });
             }
-
-            firstColumn.Cards.Add(new Models.Card
-            {
-                Contents = viewModel.Contents
-            });
 
             _dbContext.SaveChanges();
         }

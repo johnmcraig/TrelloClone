@@ -22,6 +22,7 @@ namespace TrelloClone
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<BoardService>();
+            services.AddScoped<CardService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole<Guid>>();
 

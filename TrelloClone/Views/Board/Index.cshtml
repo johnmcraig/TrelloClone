@@ -1,4 +1,5 @@
-﻿@model TrelloClone.ViewModel.BoardView;
+﻿@using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders
+@model TrelloClone.ViewModel.BoardView;
 
 @{
     ViewData["Title"] = "Index";
@@ -29,14 +30,19 @@
                 {
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                            @card.Content
+                            <p>
+                                <a asp-controller="Card" asp-action="Details" 
+                                   asp-route-id="@card.Id" class="white-text">
+                                    @card.Content
+                                </a>
+                            </p>
+                            
                         </div>
                     </div>
                 }
 
             </div>
         }
-
     </div>
 </div>
 

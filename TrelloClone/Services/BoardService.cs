@@ -42,29 +42,28 @@ namespace TrelloClone.Services
                 .ThenInclude(c => c.Cards)
                 .SingleOrDefault(x => x.Id == id);
 
-            if (board != null)
-            {
-                model.Id = board.Id;
+            if (board == null) return model;
+            model.Id = board.Id;
 
-                foreach (var column in board.Columns)
+            foreach (var column in board.Columns)
+            {
+                var modelColumn = new BoardView.Column
                 {
-                    var modelColumn = new BoardView.Column
+                    Title = column.Title
+                };
+
+                foreach (var card in column.Cards)
+                {
+                    var modelCard = new BoardView.Card
                     {
-                        Title = column.Title
+                        Id = card.Id,
+                        Content = card.Contents
                     };
 
-                    foreach (var card in column.Cards)
-                    {
-                        var modelCard = new BoardView.Card
-                        {
-                            Content = card.Contents
-                        };
-
-                        modelColumn.Cards.Add(modelCard);
-                    }
-
-                    model.Columns.Add(modelColumn);
+                    modelColumn.Cards.Add(modelCard);
                 }
+
+                model.Columns.Add(modelColumn);
             }
 
             return model;

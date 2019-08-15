@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrelloClone.Models
 {
-    //[Table("Card")]
+    [Table("Card")]
     public class Card
     {
         public int Id { get; set; }

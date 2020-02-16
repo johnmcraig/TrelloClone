@@ -22,7 +22,7 @@ namespace TrelloClone
             services.AddScoped<BoardService>();
             services.AddScoped<CardService>();
 
-            services.AddIdentity<ApplicationUser, IdentityRole<Guid>>();
+            services.AddIdentity<AppUser, IdentityRole<Guid>>();
 
             services.AddMvc(options =>
             {

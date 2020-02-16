@@ -8,7 +8,7 @@
     <h2>Details</h2>
     
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" asp-controller="Card" asp-action="Details">
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Card contents"   asp-for="Contents" />
@@ -20,6 +20,9 @@
                     <textarea placeholder="Notes" asp-for="Notes"  class="materialize-textarea"></textarea>
                     <label asp-for="Notes">Notes</label>
                 </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Save" class="btn">
             </div>
         </form>
     </div>

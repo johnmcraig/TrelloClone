@@ -24,5 +24,11 @@ namespace TrelloClone.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public IActionResult Details(CardDetails cardDetails)
+        {
+            return RedirectToAction(nameof(Details), new { id = cardDetails.Id });
+        }
     }
 }

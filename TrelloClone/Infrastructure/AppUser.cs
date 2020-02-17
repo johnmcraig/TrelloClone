@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Identity;
 
-namespace TrelloClone.Infastructure
+namespace TrelloClone.Infrastructure
 {
     public class AppUser : IdentityUser<Guid>
     {

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TrelloClone.Data;
-using TrelloClone.Infastructure;
+using TrelloClone.Infrastructure;
 using TrelloClone.Services;
 
 namespace TrelloClone

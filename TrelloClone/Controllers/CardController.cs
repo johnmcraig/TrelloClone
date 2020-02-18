@@ -26,7 +26,7 @@ namespace TrelloClone.Controllers
         }
 
         [HttpPost]
-        public IActionResult Details(CardDetails cardDetails)
+        public IActionResult Update(CardDetails cardDetails)
         {
             _cardService.Update(cardDetails);
 

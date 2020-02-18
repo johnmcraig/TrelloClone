@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using TrelloClone.Data;
 using TrelloClone.ViewModel;
 
@@ -24,6 +25,15 @@ namespace TrelloClone.Services
                 Contents = card.Contents,
                 Notes = card.Notes
             };
+        }
+
+        public void Update(CardDetails cardDetails)
+        {
+            var card = _dbContext.Cards.SingleOrDefault(x => x.Id == cardDetails.Id);
+            card.Contents = cardDetails.Contents;
+            card.Notes = cardDetails.Notes;
+
+            _dbContext.SaveChangesAsync();
         }
         
     }

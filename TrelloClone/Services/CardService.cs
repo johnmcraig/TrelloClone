@@ -35,6 +35,14 @@ namespace TrelloClone.Services
 
             _dbContext.SaveChangesAsync();
         }
+
+        public void Delete(int id)
+        {
+            var card = _dbContext.Cards.SingleOrDefault(x => x.Id == id);
+            _dbContext.Remove(id);
+            
+            _dbContext.SaveChanges();
+        }
         
     }
 }

@@ -23,11 +23,18 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s12">
+                    <select asp-for="Column" asp-items="Model.Columns"></select>
+                    <label asp-for="Column"></label>
+                </div>
+            </div>
+            <div class="row">
                 <input type="submit" value="Save" class="btn">
             </div>
         </form>
     </div>
 </div>
+
 
 @if(TempData.ContainsKey("Message"))
 {
@@ -35,3 +42,9 @@
         M.toast({ html: '@TempData["Message"]'}, 3000);
     </script>
 }
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.inti('select');
+    });
+</script>

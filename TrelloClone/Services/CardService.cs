@@ -46,7 +46,9 @@ namespace TrelloClone.Services
             {
                 Id = card.Id,
                 Contents = card.Contents,
-                Notes = card.Notes
+                Notes = card.Notes,
+                Columns = availableColumns.ToList(), // list available columns
+                Column = card.ColumnId // map current column
             };
         }
 

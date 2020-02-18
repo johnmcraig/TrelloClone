@@ -28,6 +28,10 @@ namespace TrelloClone.Controllers
         [HttpPost]
         public IActionResult Details(CardDetails cardDetails)
         {
+            _cardService.Update(cardDetails);
+
+            TempData["Message"] = "Saved card Details";
+
             return RedirectToAction(nameof(Details), new { id = cardDetails.Id });
         }
     }

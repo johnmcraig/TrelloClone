@@ -28,3 +28,9 @@
     </div>
 </div>
 
+@if(TempData.ContainsKey("Message"))
+{
+    <script type="text/javascript">
+        M.toast({ html: '@TempData["Message"]'}, 3000);
+    </script>
+}

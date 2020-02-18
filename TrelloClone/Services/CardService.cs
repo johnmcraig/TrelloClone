@@ -57,6 +57,7 @@ namespace TrelloClone.Services
             var card = _dbContext.Cards.SingleOrDefault(x => x.Id == cardDetails.Id);
             card.Contents = cardDetails.Contents;
             card.Notes = cardDetails.Notes;
+            card.ColumnId = cardDetails.Column;
 
             _dbContext.SaveChangesAsync();
         }

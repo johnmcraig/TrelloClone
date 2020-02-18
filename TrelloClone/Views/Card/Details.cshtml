@@ -8,7 +8,8 @@
     <h2>Details</h2>
     
     <div class="row">
-        <form class="col s12" asp-controller="Card" asp-action="Details">
+        <form class="col s12" asp-controller="Card" asp-action="Update">
+            <input asp-for="Id" type="hidden" />
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Card contents"   asp-for="Contents" />

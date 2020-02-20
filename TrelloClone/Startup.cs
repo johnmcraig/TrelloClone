@@ -31,7 +31,12 @@ namespace TrelloClone
             services.AddScoped<BoardService>();
             services.AddScoped<CardService>();
 
-            //services.AddIdentity<AppUser, IdentityRole<Guid>>();
+            services.AddIdentity<AppUser, IdentityRole<Guid>>()
+                .AddEntityFrameworkStores<TrelloCloneDbContext>();
+
+            services.ConfigureApplicationCookie(options => {
+                options.LoginPath = "/Users/Login";
+            });
 
             services.AddDbContext<TrelloCloneDbContext>(options =>
                 options.UseSqlServer(_config
@@ -55,6 +60,8 @@ namespace TrelloClone
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endponts =>
             {

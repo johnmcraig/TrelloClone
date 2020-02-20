@@ -42,9 +42,10 @@
         M.toast({ html: '@TempData["Message"]'}, 3000);
     </script>
 }
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init('select');
+        var instances = M.FormSelect.init(elems);
     });
 </script>

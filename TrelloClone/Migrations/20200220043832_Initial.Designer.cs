@@ -9,14 +9,14 @@ using TrelloClone.Data;
 namespace TrelloClone.Migrations
 {
     [DbContext(typeof(TrelloCloneDbContext))]
-    [Migration("20190815174907_Added card notes")]
-    partial class Addedcardnotes
+    [Migration("20200220043832_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -24,9 +24,11 @@ namespace TrelloClone.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -37,13 +39,18 @@ namespace TrelloClone.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ColumnId");
+                    b.Property<int>("ColumnId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Contents");
+                    b.Property<string>("Contents")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Notes");
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -56,11 +63,14 @@ namespace TrelloClone.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BoardId");
+                    b.Property<int>("BoardId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -74,15 +84,17 @@ namespace TrelloClone.Migrations
                     b.HasOne("TrelloClone.Models.Column", "Column")
                         .WithMany("Cards")
                         .HasForeignKey("ColumnId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TrelloClone.Models.Column", b =>
                 {
-                    b.HasOne("TrelloClone.Models.Board")
+                    b.HasOne("TrelloClone.Models.Board", null)
                         .WithMany("Columns")
                         .HasForeignKey("BoardId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -18,12 +18,23 @@
 <body>
     <div>
         <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">TrelloClone</a> 
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a asp-controller="Home" asp-action="Index">Boards</a></li>
-                </ul>          
-            </div>    
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Kanban Boards</a> 
+                   <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">
+                            Boards
+                            </a>
+                        </li>
+                   </ul> 
+                <ul class="left hide-on-med-and-down">
+                    <li>
+                        <form asp-controller="User" asp-action="SignOut" method="post">
+                            <button type="submit" class="btn-flat white-text" style="margin-right: 10px">Sign Out</button>
+                        </form>
+                    </li>
+                </ul>
+           </div>    
         </nav>
     </div>
     <div>

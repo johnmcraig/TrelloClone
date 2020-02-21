@@ -12,6 +12,7 @@ namespace TrelloClone.ViewModel
 
         public class Column
         {
+            public int Id { get; set; }
             public string Title { get; set; }
             public readonly List<Card> Cards = new List<Card>();
         }

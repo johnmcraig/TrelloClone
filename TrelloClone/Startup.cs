@@ -35,7 +35,7 @@ namespace TrelloClone
                 .AddEntityFrameworkStores<TrelloCloneDbContext>();
 
             services.ConfigureApplicationCookie(options => {
-                options.LoginPath = "/Users/Login";
+                options.LoginPath = "/User/Login";
             });
 
             services.AddDbContext<TrelloCloneDbContext>(options =>
@@ -62,6 +62,7 @@ namespace TrelloClone
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endponts =>
             {

@@ -1,0 +1,30 @@
+﻿@model TrelloClone.ViewModel.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Login</h2>
+
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+
+            <p>
+                <label asp-for="RememberMe">
+                    <input type="checkbox" asp-for="RememberMe" />
+                    <span>@Html.DisplayNameFor(m => m.RememberMe)</span>
+                </label>
+            </p>
+
+            <button class="btn" type="submit">Log in</button>
+        </form>
+    </div>
+</div>
+

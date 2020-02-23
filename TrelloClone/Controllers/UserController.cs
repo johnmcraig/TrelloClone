@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,13 +9,13 @@ namespace TrelloClone.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserManager<AppUser> _userMAnager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
 
-        public UserController(UserManager<AppUser> userMAnager,
+        public UserController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager)
         {
-            _userMAnager = userMAnager;
+            _userManager = userManager;
             _signInManager = signInManager;
         }
 
@@ -40,7 +37,7 @@ namespace TrelloClone.Controllers
                     Email = model.Email
                 };
 
-                var result = await _userMAnager
+                var result = await _userManager
                     .CreateAsync(user, model.Password);
 
                 if(result.Succeeded)

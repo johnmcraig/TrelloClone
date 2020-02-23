@@ -29,7 +29,7 @@ namespace TrelloClone.Services
                     Title = board.Title
                 });
             }
-            
+
             return model;
         }
 
@@ -49,7 +49,8 @@ namespace TrelloClone.Services
             {
                 var modelColumn = new BoardView.Column
                 {
-                    Title = column.Title
+                    Title = column.Title,
+                    Id = column.Id
                 };
 
                 foreach (var card in column.Cards)
@@ -100,10 +101,18 @@ namespace TrelloClone.Services
 
         public void AddBoard(NewBoard viewModel)
         {
-            _dbContext.Boards.Add(new Models.Board {
+            _dbContext.Boards.Add(new Models.Board
+            {
                 Title = viewModel.Title
             });
 
+            _dbContext.SaveChanges();
+        }
+
+        public void Move(MoveCardCommand command)
+        {
+            var card = _dbContext.Cards.SingleOrDefault(x => x.Id == command.CardId);
+            card.ColumnId = command.ColumnId;
             _dbContext.SaveChanges();
         }
     }

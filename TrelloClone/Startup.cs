@@ -64,9 +64,9 @@ namespace TrelloClone
             app.UseAuthorization();
             app.UseAuthentication();
 
-            app.UseEndpoints(endponts =>
+            app.UseEndpoints(endpoints =>
             {
-                endponts.MapControllerRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

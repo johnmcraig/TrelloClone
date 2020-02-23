@@ -3,6 +3,48 @@
 @{
     ViewData["Title"] = "Index";
 }
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf 
+
+@functions { 
+    public string GetAntiXsrfRequestToken() 
+    { 
+        return Xsrf.GetAndStoreTokens(Context).RequestToken;
+    } 
+}
+
+<input type="hidden" 
+    id="RequestVarificationToken" 
+    name="RequestVarificationToken" 
+    value="@GetAntiXsrfRequestToken()">
+
+<script>
+    $(function () {
+        $(".draggable").draggable({
+            revert: "invalid"
+        });
+
+        $('.column').droppable({ 
+            accept: '.draggable', 
+            drop: function (event, ui) { 
+                var dropped = ui.draggable; 
+                var droppedOn = $(this); 
+                $(dropped).detach().css({ top: 0, left: 0 }).appendTo(droppedOn); 
+            
+                $.ajax({ 
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json", 
+                    url: "/api/Board/movecard",
+                    beforeSend: function (request) {
+                        request.setRequestHeader(
+                            "RequestVarificationToken", $('#RequestVarificationToken').val());
+                    }, 
+                    data: JSON.stringify({ cardId: dropped[0].id, columnId: droppedOn[0].id }),  
+                });
+            }
+        });
+    });
+</script>
 
 <div class="container">
 
@@ -29,7 +71,7 @@
 
                     @foreach (var card in column.Cards)
                     {
-                        <div class="card blue-grey darken-1">
+                        <div class="card blue-grey darken-1 draggable">
                             <div class="card-content white-text">
                                 <p>
                                     <a asp-controller="Card" asp-action="Details" 

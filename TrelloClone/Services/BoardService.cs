@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TrelloClone.Data;
 using TrelloClone.ViewModel;
 
@@ -79,14 +76,10 @@ namespace TrelloClone.Services
             if (board != null)
             {
                 var firstColumn = board.Columns.FirstOrDefault();
-
+            
                 if (firstColumn == null)
                 {
-                    firstColumn = new Models.Column
-                    {
-                        Title = "Todo"
-                    };
-
+                    firstColumn = new Models.Column { Title = "Todo"};
                     board.Columns.Add(firstColumn);
                 }
 
@@ -112,7 +105,7 @@ namespace TrelloClone.Services
         public void Move(MoveCardCommand command)
         {
             var card = _dbContext.Cards.SingleOrDefault(x => x.Id == command.CardId);
-            card.ColumnId = command.ColumnId;
+            if (card != null) card.ColumnId = command.ColumnId;
             _dbContext.SaveChanges();
         }
     }

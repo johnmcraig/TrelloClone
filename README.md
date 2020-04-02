@@ -14,9 +14,9 @@ This web application allows the creation of new categories as main boards, which
 
 The application was built using the following:
 
-- ASP.Net Core 2.1
+- ASP.Net Core 3.1
 - SQL with Entity Framework Core as the ORM
-- Materialize CSS
+- Materialize CSS v1.0
 
 ## Installation
 

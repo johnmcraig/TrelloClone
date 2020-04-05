@@ -4,7 +4,7 @@
 
 ## Scope
 
-This project was created for the sole purpose of testing ASP.Net Core 2.1 knowledge and pairing it with Google's Materialize CSS framework. TrelloClone is a fan made project to familiarize CRUD functionality within the abilities of the developer.
+This project was created for the sole purpose of testing ASP.Net Core knowledge and pairing it with Materialize CSS framework. TrelloClone is a fan made project to familiarize CRUD functionality within the abilities of the developer.
 
 ### Function
 

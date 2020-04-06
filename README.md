@@ -1,20 +1,25 @@
 # TrelloClone
 
-> A Kanban board using ASP.Net Core 2.1 and Materialize CSS
+> A Kanban board using ASP.Net Core and Materialize CSS
 
 ## Scope
 
-This project was created for the sole purpose of testing ASP.Net Core knowledge and pairing it with Materialize CSS framework. TrelloClone is a fan made project to familiarize CRUD functionality within the abilities of the developer.
+This project was created for the sole purpose of creating an MVVM version of a Kanban board similar to Trello using ASP.Net Core and pairing it with Materialize CSS framework.
 
 ### Function
 
 This web application allows the creation of new categories as main boards, which are displayed as a collection. Within each board are category columns that separate a list of processes represented as cards.
+
+Create your own boards however many you may like. Then add a few cards, which will then add three default columns named: "Todo, Doing, and Done".
+
+Move cards into their appropriate columns. This is achieved using jQuery and the Drag & Drop JavaScript library.
 
 ## Software Stack and Tools
 
 The application was built using the following:
 
 - ASP.Net Core 3.1
+- jQuery
 - SQL with Entity Framework Core as the ORM
 - Materialize CSS v1.0
 

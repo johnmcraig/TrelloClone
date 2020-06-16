@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloClone", "TrelloClone\TrelloClone.csproj", "{E0B986B1-2EFA-4DB1-9C22-8DF42FD7E838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrelloClone", "TrelloClone\TrelloClone.csproj", "{E0B986B1-2EFA-4DB1-9C22-8DF42FD7E838}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{797A91A0-EC95-4983-BF50-7949C6A3FCE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{F2406C5B-DBD5-49A0-AD9A-7C0EEF634BF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C6A99DB6-5017-4C41-B2D4-AF29B9508143}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{E0B986B1-2EFA-4DB1-9C22-8DF42FD7E838}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0B986B1-2EFA-4DB1-9C22-8DF42FD7E838}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0B986B1-2EFA-4DB1-9C22-8DF42FD7E838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{797A91A0-EC95-4983-BF50-7949C6A3FCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797A91A0-EC95-4983-BF50-7949C6A3FCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797A91A0-EC95-4983-BF50-7949C6A3FCE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797A91A0-EC95-4983-BF50-7949C6A3FCE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2406C5B-DBD5-49A0-AD9A-7C0EEF634BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2406C5B-DBD5-49A0-AD9A-7C0EEF634BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2406C5B-DBD5-49A0-AD9A-7C0EEF634BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2406C5B-DBD5-49A0-AD9A-7C0EEF634BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A99DB6-5017-4C41-B2D4-AF29B9508143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A99DB6-5017-4C41-B2D4-AF29B9508143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A99DB6-5017-4C41-B2D4-AF29B9508143}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A99DB6-5017-4C41-B2D4-AF29B9508143}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

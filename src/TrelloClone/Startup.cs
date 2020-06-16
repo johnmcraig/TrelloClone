@@ -39,8 +39,7 @@ namespace TrelloClone
             });
 
             services.AddDbContext<TrelloCloneDbContext>(options =>
-                options.UseSqlServer(_config
-                .GetConnectionString("DefaultConnection")));
+                options.UseInMemoryDatabase(databaseName: "TrelloClone")); //_config.GetConnectionString("DefaultConnection")
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

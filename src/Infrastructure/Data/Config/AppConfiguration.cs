@@ -1,7 +1,6 @@
 ﻿using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace Infrastructure.Data.Config
 {
@@ -9,7 +8,7 @@ namespace Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Board> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(b => b.Title).IsRequired().HasMaxLength(100);
         }
     }
 }

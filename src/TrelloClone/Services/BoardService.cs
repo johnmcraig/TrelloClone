@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using TrelloClone.Data;
-using TrelloClone.ViewModel;
+using TrelloClone.ViewModels;
 
 namespace TrelloClone.Services
 {

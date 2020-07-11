@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TrelloClone.ViewModel
+namespace TrelloClone.ViewModels
 {
     public class RegisterViewModel
     {  

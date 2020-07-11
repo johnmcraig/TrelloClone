@@ -1,4 +1,4 @@
-namespace TrelloClone.ViewModel
+namespace TrelloClone.ViewModels
 {
     public class MoveCardCommand
     {

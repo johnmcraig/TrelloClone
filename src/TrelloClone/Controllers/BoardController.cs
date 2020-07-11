@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TrelloClone.Services;
-using TrelloClone.ViewModel;
+using TrelloClone.ViewModels;
 
 namespace TrelloClone.Controllers
 {

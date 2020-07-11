@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace TrelloClone.ViewModel
+namespace TrelloClone.ViewModels
 {
     public class CardDetails
     {

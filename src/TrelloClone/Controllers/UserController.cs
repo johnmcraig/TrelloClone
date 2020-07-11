@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TrelloClone.Infrastructure;
-using TrelloClone.ViewModel;
+using TrelloClone.ViewModels;
 
 namespace TrelloClone.Controllers
 {

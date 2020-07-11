@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TrelloClone.ViewModel
+namespace TrelloClone.ViewModels
 {
     public class BoardView
     {

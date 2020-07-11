@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TrelloClone.Data;
 using TrelloClone.Models;
-using TrelloClone.ViewModel;
+using TrelloClone.ViewModels;
 
 namespace TrelloClone.Services
 {

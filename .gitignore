@@ -569,3 +569,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Databases such as SQLite
+*.db

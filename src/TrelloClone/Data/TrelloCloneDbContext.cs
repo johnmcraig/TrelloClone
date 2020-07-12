@@ -14,8 +14,8 @@ namespace TrelloClone.Data
     public class TrelloCloneDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {
       private readonly IConfiguration _config;
-      public TrelloCloneDbContext(DbContextOptions<TrelloCloneDbContext> options, IConfiguration config)
-            : base(options)
+      public TrelloCloneDbContext(DbContextOptions<TrelloCloneDbContext> options, 
+        IConfiguration config) : base(options)
       {
           _config = config;
           Database.EnsureCreated();

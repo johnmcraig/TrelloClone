@@ -34,7 +34,9 @@ namespace TrelloClone.Controllers
         public IActionResult AddCard(AddCard viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);
+
             _boardService.AddCard(viewModel);
+            
             return RedirectToAction(nameof(Index), new { id = viewModel.Id });
         }
     }

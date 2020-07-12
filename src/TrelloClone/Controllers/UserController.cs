@@ -85,6 +85,7 @@ namespace TrelloClone.Controllers
         public async Task<IActionResult> SignOut()
         {
             await _signInManager.SignOutAsync();
+            
             return RedirectToAction(nameof(Login));
         }
     }

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TrelloClone.Data;
+﻿using TrelloClone.Data;
 using TrelloClone.Models;
 
 namespace TrelloClone.Services
 {
-    public class ColumnService
+  public class ColumnService
     {
         private readonly TrelloCloneDbContext _dbContext;
 

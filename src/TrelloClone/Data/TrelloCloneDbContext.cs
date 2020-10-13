@@ -11,7 +11,8 @@ using TrelloClone.Models;
 
 namespace TrelloClone.Data
 {
-    public class TrelloCloneDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
+    public class TrelloCloneDbContext : 
+        IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {
       private readonly IConfiguration _config;
       public TrelloCloneDbContext(DbContextOptions<TrelloCloneDbContext> options, 
@@ -58,7 +59,6 @@ namespace TrelloClone.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseSqlServer(_config.GetConnectionString("sqlConString"));
-            // optionsBuilder.UseInMemoryDatabase(databaseName: "StackPosts");
             optionsBuilder.UseSqlite(_config.GetConnectionString("DefaultConnection"));
         }
 

@@ -24,6 +24,7 @@ namespace TrelloClone.Data
 
       public DbSet<Board> Boards { get; set; }
       public DbSet<Card> Cards { get; set; }
+      public DbSet<Column> Columns { get; set; }
 
       protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -58,7 +59,7 @@ namespace TrelloClone.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // optionsBuilder.UseSqlServer(_config.GetConnectionString("sqlConString"));
+            // optionsBuilder.UseSqlServer(_config.GetConnectionString("sqlConnString"));
             optionsBuilder.UseSqlite(_config.GetConnectionString("DefaultConnection"));
         }
 

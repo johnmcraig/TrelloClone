@@ -9,7 +9,6 @@
     
     <div class="row">
         <form class="col s12" asp-controller="Card" asp-action="Update">
-            <input asp-for="Id" type="hidden" />
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Card contents"   asp-for="Contents" />
@@ -18,7 +17,9 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea placeholder="Notes" asp-for="Notes"  class="materialize-textarea"></textarea>
+                    <textarea placeholder="Notes" 
+                              asp-for="Notes"  
+                                class="materialize-textarea"></textarea>
                     <label asp-for="Notes">Notes</label>
                 </div>
             </div>
@@ -31,6 +32,7 @@
             <div class="row">
                 <input type="submit" value="Save" class="btn">
             </div>
+            <input asp-for="Id" type="hidden"/>
         </form>
     </div>
 </div>

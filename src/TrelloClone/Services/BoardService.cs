@@ -39,8 +39,10 @@ namespace TrelloClone.Services
                 .ThenInclude(c => c.Cards)
                 .SingleOrDefault(x => x.Id == id);
 
-            if (board == null) return model;
+            if (board == null) 
+                return model;
             model.Id = board.Id;
+            model.Title = board.Title;
 
             foreach (var column in board.Columns)
             {
@@ -111,7 +113,7 @@ namespace TrelloClone.Services
         public void Move(MoveCardCommand command)
         {
             var card = _dbContext.Cards.SingleOrDefault(x => x.Id == command.CardId);
-            if (card != null) card.ColumnId = command.ColumnId;
+            card.ColumnId = command.ColumnId;
             _dbContext.SaveChanges();
         }
     }

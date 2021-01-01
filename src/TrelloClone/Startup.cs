@@ -38,7 +38,7 @@ namespace TrelloClone
                 options.LoginPath = "/User/Login";
             });
 
-            services.AddDbContext<TrelloCloneDbContext>(); //_config.GetConnectionString("DefaultConnection")
+            services.AddDbContext<TrelloCloneDbContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

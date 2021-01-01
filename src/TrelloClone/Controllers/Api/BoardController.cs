@@ -9,6 +9,7 @@ namespace TrelloClone.Controllers.Api
     public class BoardController : ControllerBase
     {
         private readonly BoardService _boardService;
+
         public BoardController(BoardService boardService)
         {
             _boardService = boardService;
@@ -17,8 +18,10 @@ namespace TrelloClone.Controllers.Api
         [HttpPost("movecard")]
         public IActionResult MoveCard([FromBody] MoveCardCommand command)
         {
-            return Ok(new
-            {
+            _boardService.Move(command);
+
+            return Ok(new 
+            { 
                 Moved = true
             });
         }

@@ -60,14 +60,11 @@ namespace TrelloClone.Services
         public void Update(CardDetails cardDetails)
         {
             var card = _dbContext.Cards.SingleOrDefault(x => x.Id == cardDetails.Id);
-            if (card != null)
-            {
-                card.Contents = cardDetails.Contents;
-                card.Notes = cardDetails.Notes;
-                card.ColumnId = cardDetails.Column;
-            }
+            card.Contents = cardDetails.Contents;
+            card.Notes = cardDetails.Notes;
+            card.ColumnId = cardDetails.Column;
 
-            _dbContext.SaveChangesAsync();
+            _dbContext.SaveChanges();
         }
 
         public void Delete(int id)

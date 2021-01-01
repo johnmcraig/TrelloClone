@@ -26,6 +26,8 @@ namespace TrelloClone
         {
             services.AddControllersWithViews(options => {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            }).AddNewtonsoftJson(opt => {
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
 
             services.AddScoped<BoardService>();

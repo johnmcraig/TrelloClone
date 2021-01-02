@@ -1,6 +1,24 @@
-# TrelloClone
+<h1 align="center">
+
+TrelloClone
+
+</h1>
+
+<div align="center">
+
+![visitors](https://vistr.dev/badge?repo=johnmcraig.TrelloClone)
+![stars](https://img.shields.io/github/stars/johnmcraig/TrelloClone?style=flat-square&cacheSeconds=604800)
+![last commit](https://img.shields.io/github/last-commit/johnmcraig/TrelloClone?style=flat-square&cacheSeconds=86400)
+![pull requests](https://img.shields.io/github/issues-pr/johnmcraig/TrelloClone?color=0088ff)
+![forks](https://img.shields.io/github/forks/johnmcraig/TrelloClone?color=0088ff)
+
+</div>
 
 > A Kanban board using ASP.Net Core and Materialize CSS
+
+## Demo
+
+A demo of the application can be found running at: [KanbanDo](https://kanbando.azurewebsites.net/)
 
 ## Scope
 
@@ -17,7 +35,7 @@ Create your own boards by submitting a query in the `Add Board` form. Then add a
 The application was built using the following:
 
 - ASP.Net Core 3.1
-- Some jQuery for dragging Cards
+- jQuery & Ajax for dragging Cards
 - Entity Framework Core as the ORM
 - Materialize CSS v1.0
 

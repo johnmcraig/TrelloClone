@@ -574,3 +574,8 @@ _Pvt_Extensions
 *.db
 appsettings.Production.json
 
+# Build or Publish files
+**/Properties/ServiceDependencies/*
+**/Properties/ServiceDependencies/*
+**/Properties/serviceDependencies.*
+**/Properties/serviceDependencies.json

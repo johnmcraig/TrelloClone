@@ -56,12 +56,5 @@ namespace TrelloClone.Data
                 }
             }
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // optionsBuilder.UseSqlServer(_config.GetConnectionString("sqlConnString"));
-            optionsBuilder.UseSqlite(_config.GetConnectionString("DefaultConnection"));
-        }
-
     }
 }

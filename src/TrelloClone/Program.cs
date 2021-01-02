@@ -5,12 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TrelloClone.Data;
+using TrelloClone.Infrastructure;
 
 namespace TrelloClone
 {
@@ -29,6 +31,10 @@ namespace TrelloClone
                 {
                     var dbContext = services.GetRequiredService<TrelloCloneDbContext>();
                     await dbContext.Database.MigrateAsync();
+
+                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                    var identityContext = services.GetRequiredService<TrelloCloneDbContext>();
+                    await identityContext.Database.MigrateAsync();
                 }
                 catch (Exception ex)
                 {

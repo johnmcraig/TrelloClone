@@ -572,3 +572,5 @@ _Pvt_Extensions
 
 # Databases such as SQLite
 *.db
+appsettings.Production.json
+

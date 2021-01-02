@@ -3,24 +3,28 @@
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
-    { 
-        <ul class="right hide-on-med-and-down">
-            <li>
-                <form asp-controller="User" asp-action="SignOut" method="post">
-                    <button type="submit" class="btn-flat white-text" style="margin-right: 10px">Sign Out</button>
-                </form>
-            </li>
-        </ul>
+<ul class="right hide-on-med-and-down">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li>
+            <a class="btn-flat white-text"
+               asp-area="" asp-page="" title="Manage">
+                Hello @User.Identity.Name!
+            </a>
+        </li>
+        <li>
+            <form asp-controller="User" asp-action="SignOut" method="post">
+                <button type="submit" class="btn-flat white-text" style="margin-right: 10px">Sign Out</button>
+            </form>
+        </li>
     }
     else
     {
-        <ul class="right hide-on-med-and-down">
-            <li>
-                <a class="btn-flat white-text" asp-action="Register" asp-controller="User">Register</a>
-            </li>
-            <li>
-                <a class="btn-flat white-text" asp-action="Login" asp-controller="User">Login</a>
-            </li>
-        </ul>
+        <li>
+            <a class="btn-flat white-text" asp-action="Register" asp-controller="User">Register</a>
+        </li>
+        <li>
+            <a class="btn-flat white-text" asp-action="Login" asp-controller="User">Login</a>
+        </li>
     }
+</ul>

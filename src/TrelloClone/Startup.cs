@@ -22,6 +22,22 @@ namespace TrelloClone
             _config = config;
         }
 
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddDbContext<TrelloCloneDbContext>(x =>
+                x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+
+            ConfigureServices(services);
+        }
+
+        public void ConfigureProductionServices(IServiceCollection services)
+        {
+            services.AddDbContext<TrelloCloneDbContext>(x =>
+                x.UseSqlServer(_config.GetConnectionString("sqlConnString")));
+
+            ConfigureServices(services);
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(options => {

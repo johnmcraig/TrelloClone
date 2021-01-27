@@ -19,7 +19,6 @@ namespace TrelloClone.Data
         IConfiguration config) : base(options)
       {
           _config = config;
-          Database.EnsureCreated();
       }
 
       public DbSet<Board> Boards { get; set; }

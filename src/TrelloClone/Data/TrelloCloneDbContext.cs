@@ -11,10 +11,11 @@ using TrelloClone.Models;
 
 namespace TrelloClone.Data
 {
-    public class TrelloCloneDbContext : 
+    public class TrelloCloneDbContext :
         IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {
       private readonly IConfiguration _config;
+
       public TrelloCloneDbContext(DbContextOptions<TrelloCloneDbContext> options, 
         IConfiguration config) : base(options)
       {
@@ -26,34 +27,10 @@ namespace TrelloClone.Data
       public DbSet<Column> Columns { get; set; }
 
       protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
+      {
+          base.OnModelCreating(builder);
 
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-            ///<summary>
-            /// Converts decimal to double since it is not supported in SqLite 
-            /// </summary>
-            if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
-            {
-                foreach (var entityType in builder.Model.GetEntityTypes())
-                {
-                    var properties = entityType.ClrType.GetProperties().Where(p => p.PropertyType == typeof(decimal));
-                    var dateTimeProperties = entityType.ClrType.GetProperties()
-                        .Where(p => p.PropertyType == typeof(DateTimeOffset));
-
-                    foreach (var property in properties)
-                    {
-                        builder.Entity(entityType.Name).Property(property.Name).HasConversion<double>();
-                    }
-
-                    foreach (var property in dateTimeProperties)
-                    {
-                        builder.Entity(entityType.Name).Property(property.Name)
-                            .HasConversion(new DateTimeOffsetToBinaryConverter());
-                    }
-                }
-            }
-        }
+          builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+      }
     }
 }

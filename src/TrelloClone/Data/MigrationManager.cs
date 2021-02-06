@@ -1,20 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TrelloClone.Data
 {
     public static class MigrationManager
     {
+        private static readonly ILogger _logger;
+
         public static IHost MigrateDatabase(this IHost host)
         {
              using(var scope = host.Services.CreateScope())
              {
-                 using(var appContext = scope.ServiceProvider.GetRequiredService<TrelloCloneDbContext>())
+                 using(var appContext = scope.ServiceProvider
+                    .GetRequiredService<TrelloCloneDbContext>())
                  {
                     try
                     {
@@ -22,7 +23,7 @@ namespace TrelloClone.Data
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"{ex}");
+                        _logger.LogInformation($"{ex}");
                         throw;
                     }
                  }

@@ -15,7 +15,6 @@ namespace TrelloClone.Data
       public TrelloCloneDbContext(DbContextOptions<TrelloCloneDbContext> options) 
             : base(options)
       {
-            Database.EnsureCreated();
       }
 
       public DbSet<Board> Boards { get; set; }

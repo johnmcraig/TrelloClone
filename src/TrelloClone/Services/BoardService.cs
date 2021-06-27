@@ -39,7 +39,7 @@ namespace TrelloClone.Services
                 .ThenInclude(c => c.Cards)
                 .SingleOrDefault(x => x.Id == id);
 
-            if (board == null) 
+            if (board == null)
                 return model;
             model.Id = board.Id;
             model.Title = board.Title;
@@ -80,10 +80,10 @@ namespace TrelloClone.Services
                 var firstColumn = board.Columns.FirstOrDefault();
                 var secondColumn = board.Columns.FirstOrDefault();
                 var thirdColumn = board.Columns.FirstOrDefault();
-            
+
                 if (firstColumn == null || secondColumn == null || thirdColumn == null)
                 {
-                    firstColumn = new Models.Column { Title = "Todo"};
+                    firstColumn = new Models.Column { Title = "Todo" };
                     secondColumn = new Models.Column { Title = "Doing" };
                     thirdColumn = new Models.Column { Title = "Done" };
                     board.Columns.Add(firstColumn);
@@ -107,6 +107,18 @@ namespace TrelloClone.Services
                 Title = viewModel.Title
             });
 
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteBoard(int id)
+        {
+            var board = _dbContext.Boards
+                .Include(i => i.Columns)
+                .ThenInclude(x => x.Cards)
+                .FirstOrDefault(i => i.Id == id);
+              
+
+            _dbContext.Boards.Remove(board);
             _dbContext.SaveChanges();
         }
 

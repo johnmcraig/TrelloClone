@@ -6,9 +6,11 @@
 <div class="container">
     <div class="row">
         <h2>Boards</h2>
-    <a asp-action="Create" asp-controller="Home" class="waves-effect waves-light btn">
-        Add New Board
-    </a>
+        <a asp-action="Create"
+           asp-controller="Home"
+           class="waves-effect waves-light btn">
+            Add New Board
+        </a>
 
     </div>
 
@@ -18,15 +20,28 @@
             <div class="card s12">
                 <div style="float: left; margin-right: 2em; width: 22em;">
                     <div class="card blue-grey darken-1">
+
                         <div class="card-content white-text">
                             <span class="card-title">
                                 @board.Title
                             </span>
                         </div>
+
                         <div class="card-action">
                             <a asp-action="Index" asp-controller="Board"
                                asp-route-id="@board.Id"
                                class="collection-item">View</a>
+                        
+                            <form asp-action="Delete" asp-controller="Home"
+                                  style="float: right;">
+                                <input type="hidden"
+                                       value="@board.Id"
+                                       name="id" />
+                                <button class="btn-floating btn-small red"
+                                        type="submit">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

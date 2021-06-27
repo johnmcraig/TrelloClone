@@ -19,7 +19,6 @@ namespace TrelloClone.Data
                  {
                     try
                     {
-                        appContext.Database.EnsureCreated();
                         appContext.Database.Migrate();
                     }
                     catch (Exception ex)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using TrelloClone.Services;
 using TrelloClone.ViewModels;
 
@@ -33,6 +34,21 @@ namespace TrelloClone.Controllers
             _boardService.AddBoard(viewModel);
             
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(BoardView boardView)
+        {
+            try
+            {
+                _boardService.DeleteBoard(boardView.Id);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                return RedirectToAction(nameof(Index));
+            }
         }
   
     }

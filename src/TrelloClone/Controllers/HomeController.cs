@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using TrelloClone.Services;
 using TrelloClone.ViewModels;
@@ -36,6 +37,7 @@ namespace TrelloClone.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //[Authorize]
         [HttpPost]
         public IActionResult Delete(BoardView boardView)
         {

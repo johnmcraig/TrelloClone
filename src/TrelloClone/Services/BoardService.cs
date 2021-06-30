@@ -116,7 +116,6 @@ namespace TrelloClone.Services
                 .Include(i => i.Columns)
                 .ThenInclude(x => x.Cards)
                 .FirstOrDefault(i => i.Id == id);
-              
 
             _dbContext.Boards.Remove(board);
             _dbContext.SaveChanges();
